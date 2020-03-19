@@ -37,6 +37,12 @@ namespace Net.CmdLine.ThreadStudy
          * GetMaxThreads
          * QueueUserWorkItem
          * 
+         * 最佳线程数目 = （（线程等待时间+线程cpu时间）/ 线程cpu时间 ） * cpu核心数目
+         * io密集型 需要越多线程
+         * cpu密集型 越少线程，减少切换上下文时间
+         * 
+         *  高并发，任务执行时间短 cpu核心数+1
+         *  
          * 
          *  CancellationTokenSource ctsToken = new CancellationTokenSource();
          *  ThreadPool.QueueUserWorkItem(new WaitCallback(??),ctsToken)
